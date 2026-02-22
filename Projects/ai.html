@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KojiAI</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: "Consolas", "Monaco", monospace;
+      background: #000;
+      color: #0F0;
+      scroll-behavior: smooth;
+    }
+    /* 固定全屏Canvas作为背景 */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    /* 首屏英雄区 */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0.5em;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin: 0.5em;
+    }
+    /* 其他内容区域 */
+    section {
+      padding: 100px 20px;
+    }
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section-content {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="hero">
+    <h1>KojiAI</h1>
+    <p>一个实验项目</p>
+    <p>~\(≧▽≦)/~下拉查看更多</p>
+  </div>
+  <section id="about">
+    <div class="section-title">关于KojiAI（GPT生成的，与事实有出入，最终解释权归管理员）</div>
+    <div class="section-content">
+      <p>KojiAI致力于为用户提供前沿的人工智能解决方案。我们的团队专注于研发突破性的技术，不断探索和实现AI的无限可能。</p>
+      <p>在这里，你将体验到极致的技术流感受，每一行代码都蕴含着我们对未来的无限热情与追求。无论是深度学习、自然语言处理还是机器视觉，KojiAI都走在科技的前沿。</p>
+    </div>
+  </section>
+  <section id="features">
+    <div class="section-title">我们的优势</div>
+    <div class="section-content">
+      <p><strong>高效的算法：</strong>采用最前沿的算法模型，确保系统的高效与精准。</p>
+      <p><strong>用户至上：</strong>以用户需求为导向，提供定制化、智能化的解决方案。</p>
+      <p><strong>持续创新：</strong>不断研发和创新，推动人工智能领域的不断进步。</p>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="section-title">联系我们</div>
+    <div class="section-content">
+      <p>目前采用邀请制，有需要请发我e-mail</p>
+      <p>Email: kojitasho@gmail.com</p>
+      <p>Website: ai.kojitasho.top</p>
+    </div>
+  </section>
+  <script>
+    // Canvas代码流星雨效果（使用 requestAnimationFrame）
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var fontSize = 16;
+    var letters = "0123456789ABCDEF".split('');
+    var columns, drops;
+    
+    function initializeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      for (var i = 0; i < columns; i++) {
+        drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+      }
+    }
+    
+    initializeCanvas();
+    
+    function draw() {
+      // 画半透明黑色背景，实现渐隐效果
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px monospace";
+      
+      for (var i = 0; i < drops.length; i++) {
+        var text = letters[Math.floor(Math.random() * letters.length)];
+        var x = i * fontSize;
+        var y = drops[i] * fontSize;
+        ctx.fillText(text, x, y);
+        
+        // 当文字超出屏幕，随机重置
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      
+      requestAnimationFrame(draw);
+    }
+    
+    requestAnimationFrame(draw);
+    
+    window.addEventListener('resize', function() {
+      initializeCanvas();
+    });
+  </script>
+</body>
+</html>

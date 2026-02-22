@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <style>
+    /* 全局设置 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      text-align: center;
+    }
+
+    /* 头部 */
+    header {
+      background: linear-gradient(135deg, #007aff, #34c759);
+      padding: 60px 20px;
+      color: #fff;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+    }
+
+    /* 容器 */
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    /* 项目卡片 */
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .project-card {
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      width: 420px;
+      padding: 40px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    /* 图片预留 */
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    /* 进入按钮 */
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #007aff, #0056b3);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .button:hover {
+      background: linear-gradient(135deg, #0056b3, #003d82);
+      transform: scale(1.05);
+    }
+
+    /* 底部 */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1em;
+      color: #8e8e93;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Projects</h1>
+    <p>Explore my technical creations</p>
+    <p>You can Explore my project and run it on your Device</p>
+  </header>
+
+  <div class="container">
+    <section class="projects">
+      <!-- KojiAI 项目 -->
+      <div class="project-card">
+        <div class="project-image">pic
+          <img src="/pics/kojiAI.jpg" alt="KojiAI" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        
+        <h2>KojiAI</h2>
+        <p>一个实验项目</p>
+        <a href="ai.html" class="button">Learn More</a>
+      </div>
+
+      <!-- Super Lite 11 项目 -->
+      <div class="project-card">
+        <div class="project-image">pic
+          <img src="/pics/superlite11.jpg" alt="Super Lite 11" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        
+        <h2>Super Lite 11</h2>
+        <p>精简版Win11</p>
+        <a href="superlite11.html" class="button">Learn more</a>
+      </div>
+
+      <!-- Super Lite 10 Project-->
+       <div class="project-card">
+        <div class="project-image">pic
+          <img src="/pics/superlite10.jpg" alt="Super Lite 10" class="project-image">
+        </div>
+        
+        <h2>Super Lite 10</h2>
+        <p>精简版Win10</p>
+        <a href="superlite10.html" class="button">Learn more</a>
+       </div>
+      
+       
+      <!-- Amazing projects  -->
+      <div class="project-card">
+        <div class="project-image">pic
+          <img src="/pics/amazing.jpg" alt="Amazing" class="project-image">
+        </div>
+        
+        <h2>Amazing Projects</h2>
+        
+        <a href="/amazing/" class="button">奇妙影像库</a>
+        <a href="https://nas.kojitasho.top" class="button">Administrator's NAS Station</a>
+      </div>
+      
+
+      <!-- Donate Card -->
+      <div class="project-card">
+        <div class="project-image">pic
+          <img src="/pics/donate.jpg" alt="Donate" class="project-image">
+        </div>
+        
+        <h2>Donate</h2>
+        <p>支持我们，让我们做得更好！</p>
+        <a href="/Donate" class="button">赞助 Donate</a>
+
+
+        <!--About Server-->
+       
+          
+          
+          <h2>About Server</h2>
+          <p>Hardware infomation of this server</p>
+          <a href="/server" class="button">Learn more</a>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Koji Tasho. All rights reserved.
+  </footer>
+</body>
+</html>
